@@ -23,7 +23,7 @@ const services=[['01','Тексты для сайтов','Главные стр�
 export default function App(){
  const [cat,setCat]=useState<Cat>('Все работы'),[query,setQuery]=useState(''),[selected,setSelected]=useState<Work|null>(null),[menu,setMenu]=useState(false),[copied,setCopied]=useState(false);
  const filtered=useMemo(()=>works.filter(w=>(cat==='Все работы'||w.cat===cat)&&(w.title+w.cat+w.tags.join(' ')).toLowerCase().includes(query.toLowerCase())),[cat,query]);
- const email='your-email@example.com',telegram='https://t.me/your_username';
+ const email='karinawowm@gmail.com',telegram='https://t.me/kesamyrk';
  const copy=async()=>{try{await navigator.clipboard.writeText(email);setCopied(true);window.setTimeout(()=>setCopied(false),1800)}catch{window.location.href='mailto:'+email}};
  return <div className="shell">
  <header className="top"><a className="brand" href="#top"><b>K.</b><span>KARINA MEISAROSH<small>CONTENT STUDIO</small></span></a><button className="hamb" onClick={()=>setMenu(!menu)} aria-label="Меню">{menu?<X/>:<Menu/>}</button><nav className={menu?'nav open':'nav'}><a href="#works" onClick={()=>setMenu(false)}>Работы</a><a href="#approach" onClick={()=>setMenu(false)}>Подход</a><a href="#services" onClick={()=>setMenu(false)}>Услуги</a><a className="navbtn" href="#contact" onClick={()=>setMenu(false)}>Обсудить проект ↗</a></nav></header>
